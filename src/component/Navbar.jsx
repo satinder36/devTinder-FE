@@ -1,13 +1,22 @@
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../utils/constants";
+
 const Navbar = () => {
+  const userData = useSelector((store) => store.user);
   return (
     <div>
       <div className="navbar bg-primary	">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl font-bold text-white">
+          <Link
+            to={ROUTES.HOME}
+            className="btn btn-ghost text-xl font-bold text-white"
+          >
             Sa-Tinder
-          </a>
+          </Link>
         </div>
         <div className="flex-none gap-2">
+          <div className="text-white capitalize">{userData?.firstName}</div>
           <div className="dropdown dropdown-end mr-3">
             <div
               tabIndex={0}
@@ -26,16 +35,16 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a className="justify-between">
+                <Link to={ROUTES.PROFILE} className="justify-between">
                   Profile
                   <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link> Settings</Link>
               </li>
               <li>
-                <a>Logout</a>
+                <Link>Logout</Link>
               </li>
             </ul>
           </div>

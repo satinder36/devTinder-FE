@@ -1,8 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 import { BASE_URL } from "../../utils/constants";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,7 +17,8 @@ const Login = () => {
       { emailId, password },
       { withCredentials: true }
     );
-
+    dispatch(addUser(res?.data));
+    navigate("/profile");
     console.log(res);
   };
   return (
