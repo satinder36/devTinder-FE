@@ -4,4 +4,6 @@ export const ROUTES = {
   HOME: "/",
   PROFILE: "/profile",
   LOGIN: "/login",
+  CONNECTIONS: "/connections",
+  REQUESTS: "/requests",
 };

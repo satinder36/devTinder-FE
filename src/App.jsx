@@ -5,6 +5,9 @@ import Login from "./pages/auth/Login";
 import Profile from "./pages/user/Profile";
 import appStore from "./utils/appStore";
 import Feed from "./pages/feed/Feed";
+import Connections from "./pages/connections/Connections";
+import { ROUTES } from "./utils/constants";
+import Requests from "./pages/requests/Requests";
 
 function App() {
   return (
@@ -12,10 +15,12 @@ function App() {
       <Provider store={appStore}>
         <BrowserRouter basename="/">
           <Routes>
-            <Route path="/" element={<Body />}>
-              <Route path="/" element={<Feed />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/profile" element={<Profile />} />
+            <Route path={ROUTES.HOME} element={<Body />}>
+              <Route path={ROUTES.HOME} element={<Feed />} />
+              <Route path={ROUTES.LOGIN} element={<Login />} />
+              <Route path={ROUTES.PROFILE} element={<Profile />} />
+              <Route path={ROUTES.CONNECTIONS} element={<Connections />} />
+              <Route path={ROUTES.REQUESTS} element={<Requests />} />
             </Route>
           </Routes>
         </BrowserRouter>

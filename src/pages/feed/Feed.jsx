@@ -11,18 +11,17 @@ const Feed = () => {
   const getFeed = async () => {
     try {
       let res = await axios.get("/feed");
-      console.log("res", res?.data?.data);
       dispatch(addFeed(res?.data?.data));
     } catch (err) {
       console.error(err?.response?.data?.message);
     }
   };
 
-  console.log("feed", feed);
   useEffect(() => {
     getFeed();
   }, []);
 
+  if (!feed || feed.length == 0) return <div> Nothing to show</div>;
   return (
     feed && (
       <div className="flex justify-center my-10">

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { ROUTES } from "../utils/constants";
+import { ROUTES } from "../utils/constants.js";
 import { removeUser } from "../utils/userSlice";
 import axios from "../service/axiosInstance";
 
@@ -52,11 +52,13 @@ const Navbar = () => {
               <li>
                 <Link to={ROUTES.PROFILE} className="justify-between">
                   Profile
-                  <span className="badge">New</span>
                 </Link>
               </li>
               <li>
-                <Link> Settings</Link>
+                <Link to={ROUTES.CONNECTIONS}> Connections</Link>
+              </li>
+              <li>
+                <Link to={ROUTES.REQUESTS}> Requests</Link>
               </li>
               <li>
                 <Link onClick={handleLogout}>Logout</Link>
