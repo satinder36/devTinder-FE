@@ -20,51 +20,49 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <div className="navbar bg-primary	">
-        <div className="flex-1">
-          <Link
-            to={ROUTES.HOME}
-            className="btn btn-ghost text-xl font-bold text-white"
+    <div className="navbar bg-primary	sticky top-0 z-20">
+      <div className="flex-1">
+        <Link
+          to={ROUTES.HOME}
+          className="btn btn-ghost text-xl font-bold text-white"
+        >
+          Sa-Tinder
+        </Link>
+      </div>
+      <div className="flex-none gap-2">
+        <div className="text-white capitalize">{userData?.firstName}</div>
+        <div className="dropdown dropdown-end mr-3">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
           >
-            Sa-Tinder
-          </Link>
-        </div>
-        <div className="flex-none gap-2">
-          <div className="text-white capitalize">{userData?.firstName}</div>
-          <div className="dropdown dropdown-end mr-3">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-              </div>
+            <div className="w-10 rounded-full">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              />
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <Link to={ROUTES.PROFILE} className="justify-between">
-                  Profile
-                </Link>
-              </li>
-              <li>
-                <Link to={ROUTES.CONNECTIONS}> Connections</Link>
-              </li>
-              <li>
-                <Link to={ROUTES.REQUESTS}> Requests</Link>
-              </li>
-              <li>
-                <Link onClick={handleLogout}>Logout</Link>
-              </li>
-            </ul>
           </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li>
+              <Link to={ROUTES.PROFILE} className="justify-between">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link to={ROUTES.CONNECTIONS}> Connections</Link>
+            </li>
+            <li>
+              <Link to={ROUTES.REQUESTS}> Requests</Link>
+            </li>
+            <li>
+              <Link onClick={handleLogout}>Logout</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

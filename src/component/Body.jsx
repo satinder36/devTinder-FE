@@ -18,9 +18,8 @@ const Body = () => {
       const res = await axios.get("/profile/view");
       dispatch(addUser(res.data));
     } catch (err) {
-      if (err.status === 401) {
-        navigate("/login");
-      }
+      console.error(err?.message);
+      navigate("/login");
     }
   };
 
