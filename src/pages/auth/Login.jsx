@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
-import { BASE_URL } from "../../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../utils/userSlice";
 import { useNavigate } from "react-router-dom";
+import axios from "../../service/axiosInstance";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -14,11 +13,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      let res = await axios.post(
-        BASE_URL + "/login",
-        { emailId, password },
-        { withCredentials: true }
-      );
+      let res = await axios.post("/login", { emailId, password });
       dispatch(addUser(res?.data));
       navigate("/profile");
     } catch (err) {

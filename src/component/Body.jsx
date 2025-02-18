@@ -1,11 +1,10 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { BASE_URL } from "../utils/constants";
 import { addUser } from "../utils/userSlice";
+import axios from "../service/axiosInstance";
 
 const Body = () => {
   const navigate = useNavigate();
@@ -16,9 +15,7 @@ const Body = () => {
     if (userData) return;
 
     try {
-      const res = await axios.get(BASE_URL + "/profile/view", {
-        withCredentials: true,
-      });
+      const res = await axios.get("/profile/view");
       dispatch(addUser(res.data));
     } catch (err) {
       if (err.status === 401) {

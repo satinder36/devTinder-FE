@@ -4,6 +4,7 @@ import Body from "./component/Body";
 import Login from "./pages/auth/Login";
 import Profile from "./pages/user/Profile";
 import appStore from "./utils/appStore";
+import Feed from "./pages/feed/Feed";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <BrowserRouter basename="/">
           <Routes>
             <Route path="/" element={<Body />}>
+              <Route path="/" element={<Feed />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
