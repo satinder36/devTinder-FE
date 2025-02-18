@@ -10,16 +10,21 @@ const Login = () => {
   const navigate = useNavigate();
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
-    let res = await axios.post(
-      BASE_URL + "/login",
-      { emailId, password },
-      { withCredentials: true }
-    );
-    dispatch(addUser(res?.data));
-    navigate("/profile");
-    console.log(res);
+    try {
+      let res = await axios.post(
+        BASE_URL + "/login",
+        { emailId, password },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res?.data));
+      navigate("/profile");
+    } catch (err) {
+      console.log("err", err);
+      setError(err.response?.data?.message);
+    }
   };
   return (
     <div className="flex justify-center my-10">
@@ -50,6 +55,7 @@ const Login = () => {
               />
             </label>
           </div>
+          <p className="text-red-600">{error}</p>
           <div className="card-actions justify-center m-2">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
