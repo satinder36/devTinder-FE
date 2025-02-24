@@ -60,6 +60,9 @@ const Navbar = () => {
               <Link to={ROUTES.REQUESTS}> Requests</Link>
             </li>
             <li>
+              <Link to={ROUTES.PREMIUM}> Premium</Link>
+            </li>
+            <li>
               <Link onClick={handleLogout}>Logout</Link>
             </li>
           </ul>

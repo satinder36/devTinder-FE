@@ -8,4 +8,6 @@ export const ROUTES = {
   LOGIN: "/login",
   CONNECTIONS: "/connections",
   REQUESTS: "/requests",
+  PREMIUM: "/premium",
+  CHAT: "/chat",
 };
